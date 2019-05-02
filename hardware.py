@@ -4,47 +4,31 @@ import abc      # Abstract base class
 class Device(abc.ABC):
     ''' Abstract base class for all hardware devices '''
 
-    # TODO: ready/start/stop/close
-    pass
-
-
-class Sensor(Device):
-    ''' Abstract base class for image capture devices, no focus stage '''
-
     def __init__(self, timeout=1):
-        self.img = None
-        self.sensor_x = None
-        self.sensor_y = None
-        self.temperature = 0
+        self.running = False
         self.timeout = timeout
 
-    def ready(self):
-        return True
-
     def start(self):
-        return True
-
-    def stop(self):
         return True
 
     def close(self):
         return True
 
-    def get_img(self):
-        pass
 
-    # Sensor settings ---------------------------------------------------------
+class Sensor(Device):
+    ''' Abstract base class for image capture devices, no focus stage '''
+
     def exposure(exp=None):
-        pass
+        return exp
 
     def gain(gain=None):
-        pass
+        return gain
 
     def fps(fps=None):
-        pass
+        return fps
 
-    def set_roi(roi={'x': None, 'y': None, 'h': None, 'w': None}):
-        pass
+    def roi(roi=(None, None, None, None)):
+        return roi
 
 
 class Stage(Device):
