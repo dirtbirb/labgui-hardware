@@ -5,6 +5,7 @@ class Device(abc.ABC):
     ''' Abstract base class for all hardware devices '''
 
     def __init__(self, timeout=1):
+        self.available = False
         self.running = False
         self.timeout = timeout
 
