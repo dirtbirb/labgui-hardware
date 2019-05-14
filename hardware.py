@@ -19,6 +19,10 @@ class Device(abc.ABC):
 class Sensor(Device):
     ''' Abstract base class for image capture devices, no focus stage '''
 
+    def __init__(self, img_queue, timeout=1):
+        super().__init__(timeout)
+        self.img_queue = img_queue
+
     def exposure(exp=None):
         return exp
 
