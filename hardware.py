@@ -23,17 +23,17 @@ class Sensor(Device):
         super().__init__(timeout)
         self.img_queue = img_queue
 
-    def exposure(exp=None):
+    def exposure(self, exp=None):
         return exp
 
-    def gain(gain=None):
+    def gain(self, gain=None):
         return gain
 
-    def fps(fps=None):
+    def fps(self, fps=None):
         return fps
 
-    def roi(roi=(None, None, None, None)):
-        return roi
+    def roi(self, roi=(None, None, None, None)):
+        return (0., 0., 1., 1.)
 
 
 class Stage(Device):
@@ -56,7 +56,7 @@ class Stage(Device):
     def move_by(dist):
         pass
 
-    def move_to(dest):
+    def move_to(self, dest):
         pass
 
     def home(self):
